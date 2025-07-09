@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurion - AI Solutions, Web Design & Graphic Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/Erased Background.png" alt="Aurion Logo" class="logo">
+                <span class="logo-text">AURION</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#pricing" class="nav-link pricing-link">Pricing</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">WORK WITH US</span>
+                </h1>
+                <h2 class="hero-subtitle">YOUR VISION IN DIGITAL</h2>
+                <p class="hero-description">
+                    At Aurion, we believe in working together and celebrating the diverse strengths we each bring. We welcome people of all backgrounds, genders, and beliefs. We encourage healthy discussions and inspire each other to reach our full potential.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('services')">Learn More</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">Get Started</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">WELCOME TO AURION</h2>
+                <p class="section-subtitle">
+                    At Aurion, we believe in working together and celebrating the diverse strengths we each bring.
+                </p>
+                <p class="section-description">
+                    We foster an inclusive environment where everyone feels valued, supported, and inspired to reach their full potential.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-service="ai">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Solutions</h3>
+                    <p>Cutting-edge artificial intelligence solutions to automate and optimize your business processes.</p>
+                    <div class="service-features">
+                        <span>Machine Learning</span>
+                        <span>Data Analytics</span>
+                        <span>Process Automation</span>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="web">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Modern, responsive websites that engage your audience and drive business growth.</p>
+                    <div class="service-features">
+                        <span>Responsive Design</span>
+                        <span>E-commerce</span>
+                        <span>CMS Development</span>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="graphic">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p>Creative visual solutions that communicate your brand message effectively.</p>
+                    <div class="service-features">
+                        <span>Brand Identity</span>
+                        <span>Print Design</span>
+                        <span>Digital Graphics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">OUR WORK</h2>
+                <p class="section-subtitle">
+                    We set the industry standard as our clients work with high-caliber creatives and engineers.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="AI Dashboard Project">
+                        <div class="project-overlay">
+                            <h4>AI Analytics Dashboard</h4>
+                            <p>Machine Learning Platform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/326508/pexels-photo-326508.jpeg?auto=compress&cs=tinysrgb&w=800" alt="E-commerce Website">
+                        <div class="project-overlay">
+                            <h4>E-commerce Platform</h4>
+                            <p>Modern Online Store</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brand Identity">
+                        <div class="project-overlay">
+                            <h4>Brand Identity Design</h4>
+                            <p>Complete Visual System</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mobile App">
+                        <div class="project-overlay">
+                            <h4>Mobile Application</h4>
+                            <p>iOS & Android App</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Corporate Website">
+                        <div class="project-overlay">
+                            <h4>Corporate Website</h4>
+                            <p>Professional Business Site</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marketing Materials">
+                        <div class="project-overlay">
+                            <h4>Marketing Campaign</h4>
+                            <p>Digital & Print Materials</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">LIFE AT AURION</h2>
+                    <div class="about-features">
+                        <div class="feature">
+                            <h4>Design Awards to Add to Your Creative Portfolio</h4>
+                            <p>Our exceptional work has been recognized with numerous industry awards and accolades.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Your Choice of State-of-the-Art Devices</h4>
+                            <p>Work with the latest technology and tools to bring your creative vision to life.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Annual Industry Event Stipend</h4>
+                            <p>Stay ahead of industry trends with our professional development support.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-images">
+                    <div class="image-grid">
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Team collaboration">
+                        <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Creative workspace">
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Design process">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">OUR PRICING</h2>
+                <p class="section-subtitle">Choose the perfect plan for your needs</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>AI Solutions</h3>
+                    <div class="price">From $2,500</div>
+                    <ul class="pricing-features">
+                        <li>Custom AI Model Development</li>
+                        <li>Data Analysis & Insights</li>
+                        <li>Process Automation</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                    <a href="pricing/ai-solutions-pricing.pdf" download class="btn btn-primary">Download PDF</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Web Design</h3>
+                    <div class="price">From $1,200</div>
+                    <ul class="pricing-features">
+                        <li>Responsive Design</li>
+                        <li>CMS Integration</li>
+                        <li>SEO Optimization</li>
+                        <li>Maintenance & Support</li>
+                    </ul>
+                    <a href="pricing/web-design-pricing.pdf" download class="btn btn-primary">Download PDF</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Graphic Design</h3>
+                    <div class="price">From $800</div>
+                    <ul class="pricing-features">
+                        <li>Brand Identity Design</li>
+                        <li>Print & Digital Materials</li>
+                        <li>Logo Design</li>
+                        <li>Unlimited Revisions</li>
+                    </ul>
+                    <a href="pricing/graphic-design-pricing.pdf" download class="btn btn-primary">Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates and insights</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>LET'S CONNECT</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>hello@aurion.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Visit Us</h4>
+                                <p>123 Innovation Street<br>Tech City, TC 12345</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="office-hours">
+                        <h4>OFFICE HOURS</h4>
+                        <p>Monday - Friday: 9am - 6pm<br>
+                        Saturday: 10am - 4pm<br>
+                        Sunday: Closed</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Select Service</option>
+                                <option value="ai">AI Solutions</option>
+                                <option value="web">Web Design</option>
+                                <option value="graphic">Graphic Design</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/Erased Background.png" alt="Aurion Logo" class="logo">
+                    <span class="logo-text">AURION</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aurion. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">
+            <h4>Chat with us</h4>
+            <button class="chatbot-close" id="chatbotClose">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                <p>Hello! How can I help you today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <button class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
