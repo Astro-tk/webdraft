@@ -319,29 +319,88 @@
                         Sunday: Closed</p>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Select Service</option>
-                                <option value="ai">AI Solutions</option>
-                                <option value="web">Web Design</option>
-                                <option value="graphic">Graphic Design</option>
-                                <option value="graphic">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+<!-- Add this in place of your existing contact form -->
+<div class="contact-form">
+  <form id="multiStepForm" action="https://formspree.io/f/xblynjkv" method="POST">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div id="progressStep1" class="progress-step active"></div>
+      <div id="progressStep2" class="progress-step"></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="form-step" id="step1">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <select name="service" id="serviceSelect" required>
+          <option value="">Select Service</option>
+          <option value="AI Solutions">AI Solutions</option>
+          <option value="Web Design">Web Design</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="goToStep2()">Next</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="form-step" id="step2" style="display: none;">
+      <div class="form-group" id="budgetGroup">
+        <input type="text" name="budget" placeholder="Your Budget">
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Optional message..." rows="5"></textarea>
+      </div>
+      <button type="button" class="btn btn-secondary" onclick="goBackToStep1()">Back</button>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .progress-bar {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .progress-step {
+    flex: 1;
+    height: 5px;
+    background: #ccc;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  .progress-step.active {
+    background: #007bff;
+  }
+</style>
+
+<script>
+  function goToStep2() {
+    const service = document.getElementById('serviceSelect').value;
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('step2').style.display = 'block';
+    document.getElementById('progressStep1').classList.remove('active');
+    document.getElementById('progressStep2').classList.add('active');
+
+    // Hide budget field if 'Other' is selected
+    document.getElementById('budgetGroup').style.display = service === 'Other' ? 'none' : 'block';
+  }
+
+  function goBackToStep1() {
+    document.getElementById('step2').style.display = 'none';
+    document.getElementById('step1').style.display = 'block';
+    document.getElementById('progressStep2').classList.remove('active');
+    document.getElementById('progressStep1').classList.add('active');
+  }
+</script>
+
             </div>
         </div>
     </section>
