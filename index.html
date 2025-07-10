@@ -280,7 +280,7 @@
                         <li>Logo Design</li>
                         <li>Unlimited Revisions</li>
                     </ul>
-                    <a href="https://aurionsa.wordpress.com/wp-content/uploads/2025/07/graphic-design-pricing.pdf" download class="btn btn-primary">Download PDF</a>
+                    <a href="pricing/graphic-design-pricing.pdf" download class="btn btn-primary">Download PDF</a>
                 </div>
             </div>
         </div>
@@ -292,13 +292,43 @@
             <div class="newsletter-content">
                 <h3>Stay Updated</h3>
                 <p>Subscribe to our newsletter for the latest updates and insights</p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Enter your email" required>
+                <form action="https://formspree.io/f/xpwrvwzr" method="POST" class="newsletter-form" id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
             </div>
         </div>
     </section>
+<script>
+document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = new FormData(form);
+  const button = form.querySelector('button');
+
+  // Show loading state
+  button.disabled = true;
+  button.innerHTML = '<span class="loader"></span> Subscribing...';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      form.innerHTML = `
+        <p class="newsletter-message success">Thanks for subscribing! You'll hear from us soon.</p>
+      `;
+    } else {
+      form.innerHTML = `
+        <p class="newsletter-message error">Something went wrong. Please try again later.</p>
+      `;
+    }
+  });
+});
+</script>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
