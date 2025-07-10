@@ -1013,3 +1013,11 @@ html {
   display: block;
   min-height: 18px; /* to avoid layout jump */
 }
+
+#stickyLogo {
+  cursor: pointer;
+}
+
+#stickyheader {
+  cursor: pointer;
+}
