@@ -1006,3 +1006,10 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+.error-message {
+  color: #e6b800; /* bright yellow */
+  font-size: 0.9em;
+  margin-top: 4px;
+  display: block;
+  min-height: 18px; /* to avoid layout jump */
+}
