@@ -330,37 +330,47 @@
       <div id="progressStep2" class="progress-step"></div>
     </div>
 
-    <!-- Step 1 -->
-    <div class="form-step" id="step1">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
-      </div>
-      <div class="form-group">
-        <select name="service" id="serviceSelect" required>
-          <option value="">Select Service</option>
-          <option value="AI Solutions">AI Solutions</option>
-          <option value="Web Design">Web Design</option>
-          <option value="Graphic Design">Graphic Design</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <button type="button" class="btn btn-primary" onclick="goToStep2()">Next</button>
-    </div>
+<!-- Step 1 -->
+<div class="form-step" id="step1">
+  <div class="form-group">
+    <input type="text" name="name" id="name" placeholder="Your Name" required>
+    <small class="error-message"></small>
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" id="email" placeholder="Your Email" required>
+    <small class="error-message"></small>
+  </div>
+  <div class="form-group">
+    <input type="text" name="company" id="company" placeholder="Company Name (Optional)">
+    <small class="error-message"></small>
+  </div>
+  <div class="form-group">
+    <select name="service" id="serviceSelect" required>
+      <option value="">Select Service</option>
+      <option value="AI Solutions">AI Solutions</option>
+      <option value="Web Design">Web Design</option>
+      <option value="Graphic Design">Graphic Design</option>
+      <option value="Other">Other</option>
+    </select>
+    <small class="error-message"></small>
+  </div>
+  <button type="button" class="btn btn-primary" onclick="goToStep2()">Next</button>
+</div>
 
-    <!-- Step 2 -->
-    <div class="form-step" id="step2" style="display: none;">
-      <div class="form-group" id="budgetGroup">
-        <input type="text" name="budget" placeholder="Your Budget">
-      </div>
-      <div class="form-group">
-        <textarea name="message" placeholder="Optional message..." rows="5"></textarea>
-      </div>
-      <button type="button" class="btn btn-secondary" onclick="goBackToStep1()">Back</button>
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </div>
+<!-- Step 2 -->
+<div class="form-step" id="step2" style="display: none;">
+  <div class="form-group" id="budgetGroup">
+    <input type="number" name="budget" placeholder="Your Budget" min="0" step="1" required>
+    <small class="error-message"></small>
+  </div>
+  <div class="form-group">
+    <textarea name="message" placeholder="Optional message..." rows="5"></textarea>
+    <small class="error-message"></small>
+  </div>
+  <button type="button" class="btn btn-secondary" onclick="goBackToStep1()">Back</button>
+  <button type="submit" class="btn btn-primary">Send Message</button>
+</div>
+
   </form>
 </div>
 
@@ -383,23 +393,49 @@
 </style>
 
 <script>
-  function goToStep2() {
-    const service = document.getElementById('serviceSelect').value;
-    document.getElementById('step1').style.display = 'none';
-    document.getElementById('step2').style.display = 'block';
-    document.getElementById('progressStep1').classList.remove('active');
-    document.getElementById('progressStep2').classList.add('active');
+function goToStep2() {
+  const fields = [
+    { id: 'name', name: "Name", required: true, type: 'text' },
+    { id: 'email', name: "Email", required: true, type: 'email' },
+    { id: 'serviceSelect', name: "Service", required: true, type: 'select' },
+  ];
 
-    // Hide budget field if 'Other' is selected
-    document.getElementById('budgetGroup').style.display = service === 'Other' ? 'none' : 'block';
+  let isValid = true;
+
+  fields.forEach(field => {
+    const input = document.getElementById(field.id);
+    const errorMsg = input.parentElement.querySelector('.error-message');
+    errorMsg.textContent = '';
+
+    if (field.required) {
+      if (field.type === 'text' && !input.value.trim()) {
+        errorMsg.textContent = `${field.name} is required`;
+        isValid = false;
+      } else if (field.type === 'email' && !input.validity.valid) {
+        errorMsg.textContent = `Please enter a valid ${field.name.toLowerCase()}`;
+        isValid = false;
+      } else if (field.type === 'select' && !input.value) {
+        errorMsg.textContent = `Please select a ${field.name.toLowerCase()}`;
+        isValid = false;
+      }
+    }
+  });
+
+  if (!isValid) {
+    return;
   }
 
-  function goBackToStep1() {
-    document.getElementById('step2').style.display = 'none';
-    document.getElementById('step1').style.display = 'block';
-    document.getElementById('progressStep2').classList.remove('active');
-    document.getElementById('progressStep1').classList.add('active');
-  }
+  // Hide step 1, show step 2
+  document.getElementById('step1').style.display = 'none';
+  document.getElementById('step2').style.display = 'block';
+
+  // Show/hide budget based on service
+  const budgetGroup = document.getElementById('budgetGroup');
+  budgetGroup.style.display = document.getElementById('serviceSelect').value === 'Other' ? 'none' : 'block';
+
+  // Clear errors on step 2 just in case
+  document.querySelectorAll('#step2 .error-message').forEach(em => em.textContent = '');
+}
 </script>
 
             </div>
