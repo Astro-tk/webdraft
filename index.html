@@ -14,8 +14,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="https://aurionsa.wordpress.com/wp-content/uploads/2025/04/whatsapp_image_2025-04-08_at_15.40.02-removebg-preview-e1752063167836.png" alt="Aurion Logo" class="logo">
-                <span class="logo-text">AURION</span>
+                <img src="https://aurionsa.wordpress.com/wp-content/uploads/2025/04/whatsapp_image_2025-04-08_at_15.40.02-removebg-preview-e1752063167836.png" alt="Aurion Logo" class="logo" id="stickyLogo">
+                <span class="logo-text" id="stickyheader">AURION</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -59,6 +59,22 @@
             </div>
         </div>
     </section>
+    <script>
+      document.getElementById('stickyLogo').addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+    </script>
+        <script>
+      document.getElementById('stickyheader').addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+    </script>
 
     <!-- Services Section -->
     <section id="services" class="services">
