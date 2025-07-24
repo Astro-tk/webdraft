@@ -1061,3 +1061,57 @@ html {
   100% { transform: rotate(360deg); }
 }
 
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  z-index: 9999;
+}
+
+.trail-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #9b59b6; /* default purple */
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 6px 2px rgba(155, 89, 182, 0.6);
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+}
+
+/* Hide system cursor */
+body {
+  cursor: none;
+}
+
+/* Cursor Circle */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, border 0.2s ease;
+  z-index: 10000;
+}
+
+/* Cursor grows on interactive elements */
+.custom-cursor.hovering {
+  transform: translate(-50%, -50%) scale(2);
+  border-color: #007aff;
+}
+
