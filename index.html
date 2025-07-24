@@ -8,16 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="https://aurionsa.wordpress.com/wp-content/uploads/2025/04/whatsapp_image_2025-04-08_at_15.40.02-removebg-preview-e1752063167836.png" type="image/png">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-936RHVHQ8W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-936RHVHQ8W');
-</script>
-
 </head>
 <body>
     <!-- Navigation -->
@@ -529,6 +519,65 @@ function goToStep2() {
     
     <script src="https://cdn.botpress.cloud/webchat/v3.1/inject.js" defer></script>
 <script src="https://files.bpcontent.cloud/2025/07/10/06/20250710065531-EU2FXP21.js" defer></script>
-    
+    <div class="cursor-follower"></div>
+
+<script>
+  document.addEventListener('mousemove', (e) => {
+  const dot = document.createElement('div');
+  dot.classList.add('trail-dot');
+
+  // Detect if cursor is over a link
+  const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
+  const isHoveringLink = hoveredElement && hoveredElement.closest('a');
+
+  // Change color if hovering over link
+  if (isHoveringLink) {
+    dot.style.background = '#00bcd4'; // blue for links
+    dot.style.boxShadow = '0 0 6px 2px rgba(0, 188, 212, 0.6)';
+  }
+
+  dot.style.left = `${e.clientX}px`;
+  dot.style.top = `${e.clientY}px`;
+  document.body.appendChild(dot);
+
+  // Fade out and remove
+  setTimeout(() => {
+    dot.style.opacity = '0';
+    setTimeout(() => dot.remove(), 400); // remove after fade
+  }, 10);
+});
+
+</script>
+<div class="custom-cursor"></div>
+<script>
+  const cursor = document.querySelector('.custom-cursor');
+
+let x = 0, y = 0;
+let targetX = 0, targetY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  targetX = e.clientX;
+  targetY = e.clientY;
+});
+
+// Smooth animation
+function animate() {
+  x += (targetX - x) * 0.15;
+  y += (targetY - y) * 0.15;
+  cursor.style.left = x + 'px';
+  cursor.style.top = y + 'px';
+  requestAnimationFrame(animate);
+}
+animate();
+
+// Grow cursor on hover
+const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+});
+
+</script>
 </body>
 </html>
